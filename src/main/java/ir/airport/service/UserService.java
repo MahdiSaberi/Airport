@@ -1,4 +1,6 @@
 package ir.airport.service;
 
-public interface UserService {
+import ir.airport.base.service.BaseService;
+
+public interface UserService extends BaseService {
 }

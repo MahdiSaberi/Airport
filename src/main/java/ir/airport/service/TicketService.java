@@ -1,4 +1,6 @@
 package ir.airport.service;
 
-public interface TicketService {
+import ir.airport.base.service.BaseService;
+
+public interface TicketService extends BaseService {
 }

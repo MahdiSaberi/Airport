@@ -11,14 +11,17 @@ public class Airline extends BaseEntity<Long> {
 
     private String label;
 
+    private String password;
+
     @OneToMany(cascade = CascadeType.REMOVE)
     private Set<Ticket> tickets;
 
     public Airline() {
     }
 
-    public Airline(String label) {
+    public Airline(String label,String password) {
         this.label = label;
+        this.password = password;
     }
 
     public String getLabel() {
@@ -27,6 +30,14 @@ public class Airline extends BaseEntity<Long> {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<Ticket> getTickets() {

@@ -13,9 +13,9 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
 
 
     public void initAirlinesWithTickets(){
-        Airline airline1 = new Airline("Mahan");
-        Airline airline2 = new Airline("Zagros");
-        Airline airline3 = new Airline("Iran Air");
+        Airline airline1 = new Airline("Mahan","321");
+        Airline airline2 = new Airline("Zagros","4321");
+        Airline airline3 = new Airline("Iran Air","54321");
 
         Context.airline.save(airline1);
         Context.airline.save(airline2);

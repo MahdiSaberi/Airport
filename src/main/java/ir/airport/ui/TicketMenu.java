@@ -1,4 +1,4 @@
 package ir.airport.ui;
 
-public class MenuUI {
+public class TicketMenu {
 }

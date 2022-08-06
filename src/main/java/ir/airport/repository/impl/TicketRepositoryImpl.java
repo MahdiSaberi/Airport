@@ -11,7 +11,6 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
     @Override
     public Class<Ticket> getEntityClass() {return Ticket.class;}
 
-
     public void initAirlinesWithTickets(){
         Airline airline1 = new Airline("Mahan","321");
         Airline airline2 = new Airline("Zagros","4321");

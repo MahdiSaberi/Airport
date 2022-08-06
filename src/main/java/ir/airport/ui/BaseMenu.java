@@ -10,4 +10,13 @@ public class BaseMenu {
         return "=====================";
     }
 
+    public void startMenu(){
+        skeffolding();
+        System.out.println("Welcome!");
+        System.out.println("1 -> Login");
+        System.out.println("2 -> Register");
+        System.out.println("3 -> Exit");
+        Integer select = number.nextInt();
+    }
+
 }

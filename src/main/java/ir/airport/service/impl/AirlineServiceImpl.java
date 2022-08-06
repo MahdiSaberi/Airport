@@ -7,4 +7,8 @@ import ir.airport.repository.AirlineRepository;
 import ir.airport.service.AirlineService;
 
 public class AirlineServiceImpl extends BaseServiceImpl<Airline,Long, AirlineRepository> implements AirlineService {
+
+    public AirlineServiceImpl(AirlineRepository repository) {
+        super(repository);
+    }
 }

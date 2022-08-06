@@ -13,4 +13,27 @@ public class Airline extends BaseEntity<Long> {
 
     @OneToMany(cascade = CascadeType.REMOVE)
     private Set<Ticket> tickets;
+
+    public Airline() {
+    }
+
+    public Airline(String label) {
+        this.label = label;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 }

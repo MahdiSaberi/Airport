@@ -6,5 +6,7 @@ import ir.airport.repository.UserRepository;
 import ir.airport.service.UserService;
 
 public class UserServiceImpl extends BaseServiceImpl<User,Long, UserRepository> implements UserService {
-
+    public UserServiceImpl(UserRepository repository) {
+        super(repository);
+    }
 }

@@ -18,9 +18,16 @@ public class Ticket extends BaseEntity<Long> {
     private Long price;
 
     @Column(name = "reserved")
-    private Integer reservedNumber;
+    private Integer reservedNumber = 0;
 
     public Ticket() {
+    }
+
+    public Ticket(Airline airline, String origin, String destination, Long price) {
+        this.airline = airline;
+        this.origin = origin;
+        this.destination = destination;
+        this.price = price;
     }
 
     public Airline getAirline() {

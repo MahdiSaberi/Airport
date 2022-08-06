@@ -1,8 +1,6 @@
 package ir.airport.base.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -10,7 +8,7 @@ import java.io.Serializable;
 public abstract class BaseEntity<ID extends Serializable> implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
 
     public BaseEntity() {

@@ -4,6 +4,7 @@ import ir.airport.base.repository.BaseRepository;
 import ir.airport.base.repository.impl.BaseRepositoryImpl;
 import ir.airport.entity.Airline;
 import ir.airport.repository.AirlineRepository;
+import ir.airport.utility.Context;
 
 public class AirlineRepositoryImpl extends BaseRepositoryImpl<Airline,Long> implements AirlineRepository {
 
@@ -11,4 +12,5 @@ public class AirlineRepositoryImpl extends BaseRepositoryImpl<Airline,Long> impl
     public Class<Airline> getEntityClass() {
         return Airline.class;
     }
+
 }

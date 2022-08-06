@@ -11,6 +11,10 @@ public class BaseServiceImpl<E extends BaseEntity<ID>,ID extends Serializable,R 
 
     protected R repository;
 
+    public BaseServiceImpl(R repository) {
+        this.repository = repository;
+    }
+
     @Override
     public E save(E e) {
         try {

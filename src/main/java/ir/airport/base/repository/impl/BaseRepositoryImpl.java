@@ -1,4 +1,4 @@
-package ir.airport.base.repository.Impl;
+package ir.airport.base.repository.impl;
 
 import ir.airport.base.entity.BaseEntity;
 import ir.airport.base.repository.BaseRepository;

@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface BaseRepository<E extends BaseEntity<ID>,ID extends Serializable> {
+
     E save(E e);
 
     void update(E e);

@@ -7,6 +7,8 @@ import ir.airport.repository.TicketRepository;
 import ir.airport.service.TicketService;
 import ir.airport.utility.Context;
 
+import java.util.List;
+
 
 public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketRepository> implements TicketService {
 
@@ -14,4 +16,35 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketReposi
         super(repository);
     }
 
+    @Override
+    public List<Ticket> orderByPrice() {
+        repository.beginTransaction();
+        List<Ticket> tickets = repository.orderByPrice();
+        repository.commitTransaction();
+        return tickets;
+    }
+
+    @Override
+    public List<Ticket> orderByOrigin() {
+        repository.beginTransaction();
+        List<Ticket> tickets = repository.orderByOrigin();
+        repository.commitTransaction();
+        return tickets;
+    }
+
+    @Override
+    public List<Ticket> orderByDestination() {
+        repository.beginTransaction();
+        List<Ticket> tickets = repository.orderByDestination();
+        repository.commitTransaction();
+        return tickets;
+    }
+
+    @Override
+    public List<Ticket> orderByLabel() {
+        repository.beginTransaction();
+        List<Ticket> tickets = repository.orderByLabel();
+        repository.commitTransaction();
+        return tickets;
+    }
 }

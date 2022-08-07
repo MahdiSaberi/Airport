@@ -1,11 +1,4 @@
-package ir.airport.ui.base;
-
-import ir.airport.ui.Login;
-import ir.airport.ui.Register;
-import ir.airport.ui.TicketMenu;
-import ir.airport.ui.UserMenu;
-import ir.airport.utility.Context;
-
+package ir.airport.base.ui;
 import java.util.Scanner;
 
 public class BaseMenu {
@@ -15,7 +8,5 @@ public class BaseMenu {
     public static void scaffolding(){
         System.out.println("=====================");
     }
-
-
 
 }

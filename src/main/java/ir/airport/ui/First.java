@@ -2,8 +2,8 @@ package ir.airport.ui;
 
 import ir.airport.utility.Context;
 
-import static ir.airport.ui.base.BaseMenu.number;
-import static ir.airport.ui.base.BaseMenu.scaffolding;
+import static ir.airport.base.ui.BaseMenu.number;
+import static ir.airport.base.ui.BaseMenu.scaffolding;
 
 public class First {
     public void startMenu(){

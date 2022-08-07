@@ -1,6 +1,5 @@
 package ir.airport.utility;
 
-import ir.airport.entity.Airline;
 import ir.airport.repository.AirlineRepository;
 import ir.airport.repository.TicketRepository;
 import ir.airport.repository.UserRepository;
@@ -14,7 +13,6 @@ import ir.airport.service.impl.AirlineServiceImpl;
 import ir.airport.service.impl.TicketServiceImpl;
 import ir.airport.service.impl.UserServiceImpl;
 import ir.airport.ui.*;
-import ir.airport.ui.base.BaseMenu;
 import jakarta.persistence.EntityManager;
 
 public class Context {

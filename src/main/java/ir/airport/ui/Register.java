@@ -4,7 +4,7 @@ import ir.airport.entity.Airline;
 import ir.airport.entity.User;
 import ir.airport.utility.Context;
 
-import static ir.airport.ui.base.BaseMenu.*;
+import static ir.airport.base.ui.BaseMenu.*;
 
 public class Register {
 

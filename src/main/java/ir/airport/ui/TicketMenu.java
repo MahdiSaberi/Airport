@@ -6,13 +6,33 @@ import ir.airport.utility.Context;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static ir.airport.ui.base.BaseMenu.number;
-import static ir.airport.ui.base.BaseMenu.scaffolding;
+import static ir.airport.base.ui.BaseMenu.number;
+import static ir.airport.base.ui.BaseMenu.scaffolding;
 
 public class TicketMenu {
 
-    public void ticketList(){
-        List<Ticket> tickets = Context.ticket.findAll();
+    public void ticketList(String order){
+
+        List<Ticket> tickets = null;
+
+        if(order.equals("ID"))
+            tickets = Context.ticket.findAll();
+
+        else if(order.equals("Price")){
+            tickets = Context.ticket.orderByPrice();
+        }
+
+        else if(order.equals("Origin")){
+            tickets = Context.ticket.orderByOrigin();
+        }
+
+        else if (order.equals("Destination")){
+            tickets = Context.ticket.orderByDestination();
+        }
+
+        else if(order.equals("Label")){
+            tickets = Context.ticket.orderByLabel();
+        }
 
         tickets.forEach(ticket -> {
             scaffolding();
@@ -51,7 +71,31 @@ public class TicketMenu {
 
     }
 
-    public void sorting(){
+    public void sorting(User user){
+        scaffolding();
+        System.out.println("Sort by:");
+        System.out.println("1 -> Price");
+        System.out.println("2 -> Origin");
+        System.out.println("3 -> Destination");
+        System.out.println("4 -> Label");
+        System.out.println("5 -> Back");
+        Integer select = number.nextInt();
 
+        switch (select){
+            case 1:
+                ticketList("Price");
+                break;
+            case 2:
+                ticketList("Origin");
+                break;
+            case 3:
+                ticketList("Destination");
+                break;
+            case 4:
+                ticketList("Label");
+                break;
+            case 5:
+                Context.userMenu.seeAndBuyTickets(user);
+        }
     }
 }

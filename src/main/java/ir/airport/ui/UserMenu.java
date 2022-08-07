@@ -3,8 +3,8 @@ package ir.airport.ui;
 import ir.airport.entity.Ticket;
 import ir.airport.entity.User;
 import ir.airport.utility.Context;
-import static ir.airport.ui.base.BaseMenu.number;
-import static ir.airport.ui.base.BaseMenu.scaffolding;
+import static ir.airport.base.ui.BaseMenu.number;
+import static ir.airport.base.ui.BaseMenu.scaffolding;
 
 public class UserMenu {
 
@@ -18,6 +18,7 @@ public class UserMenu {
 
         switch (select){
             case 1:
+                Context.ticketMenu.ticketList("ID");
                 seeAndBuyTickets(user);
                 break;
             case 2:
@@ -34,7 +35,6 @@ public class UserMenu {
     }
 
     public void seeAndBuyTickets(User user){
-        Context.ticketMenu.ticketList();
         scaffolding();
         System.out.println("1 -> Reserve");
         System.out.println("2 -> Search");
@@ -51,7 +51,8 @@ public class UserMenu {
                 Context.ticketMenu.searching();
                 break;
             case 3:
-                Context.ticketMenu.sorting();
+                Context.ticketMenu.sorting(user);
+                seeAndBuyTickets(user);
                 break;
             case 4:
                 userPage(user);
@@ -84,6 +85,4 @@ public class UserMenu {
     public void activeTickets(User user){
         Context.ticketMenu.ticketsUniqueByUser(user);
     }
-
-
 }

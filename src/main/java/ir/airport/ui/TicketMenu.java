@@ -17,11 +17,5 @@ public class TicketMenu {
             System.out.println("Label: "+ticket.getAirline().getLabel());
             System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice());
         });
-
-        skeffolding();
-        System.out.println("1 -> Reserve by ID");
-        System.out.println("2 -> Back");
-
-        Integer select = number.nextInt();
     }
 }

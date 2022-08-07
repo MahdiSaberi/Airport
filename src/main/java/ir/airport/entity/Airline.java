@@ -13,7 +13,7 @@ public class Airline extends BaseEntity<Long> {
 
     private String password;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy = "airline")
     private Set<Ticket> tickets;
 
     public Airline() {

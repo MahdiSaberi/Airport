@@ -1,9 +1,10 @@
 package ir.airport.entity;
 
 import ir.airport.base.entity.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_tbl")
@@ -18,8 +19,10 @@ public class User extends BaseEntity<Long> {
     @Column(unique = true)
     private String username;
 
-
     private String password;
+
+    @ManyToMany(mappedBy = "users")
+    private List<Ticket> tickets;
 
     public User() {
     }
@@ -63,5 +66,13 @@ public class User extends BaseEntity<Long> {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }

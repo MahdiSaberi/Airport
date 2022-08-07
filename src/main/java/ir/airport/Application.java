@@ -11,7 +11,7 @@ import ir.airport.utility.HibernateUtil;
 public class Application {
     public static void main(String[] args) {
         HibernateUtil.getEntityManager();
-        Context.baseMenu.startMenu();
+        //Context.baseMenu.startMenu();
         //init();
         //Register.registerUser();
         System.out.println("Done!");

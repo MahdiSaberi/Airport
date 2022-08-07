@@ -1,9 +1,9 @@
 package ir.airport.entity;
 
 import ir.airport.base.entity.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Ticket extends BaseEntity<Long> {
@@ -19,6 +19,9 @@ public class Ticket extends BaseEntity<Long> {
 
     @Column(name = "reserved")
     private Integer reservedNumber = 0;
+
+    @ManyToMany
+    private List<User> users;
 
     public Ticket() {
     }
@@ -68,5 +71,13 @@ public class Ticket extends BaseEntity<Long> {
 
     public void setReservedNumber(Integer reservedNumber) {
         this.reservedNumber = reservedNumber;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

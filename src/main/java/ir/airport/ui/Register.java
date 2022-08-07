@@ -40,4 +40,11 @@ public class Register {
             Context.baseMenu.startMenu();
         }
     }
+
+    public void registerAirline(){
+        System.out.println("Label:");
+        String label = string.nextLine();
+        System.out.println("Password:");
+        String password = string.nextLine();
+    }
 }

@@ -60,6 +60,7 @@ public class UserMenu {
 
     public void ticketRefund(User user){
         Context.ticketMenu.ticketsUniqueByUser(user);
+        scaffolding();
         System.out.println("Select Ticket by ID:");
         Long id = number.nextLong();
         Ticket ticket = Context.ticket.findById(id);

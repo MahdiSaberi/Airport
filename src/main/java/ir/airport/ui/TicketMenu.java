@@ -28,7 +28,8 @@ public class TicketMenu {
         for(Ticket ticket : tickets){
             scaffolding();
             System.out.println(ticket.getId()+". Label: "+ticket.getAirline().getLabel());
-            System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice());
+            System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice()
+            +"\t"+"Number reserved: "+ticket.getReservedNumber());
         }
     }
 

@@ -38,13 +38,13 @@ public abstract class BaseRepositoryImpl<E extends BaseEntity<ID>,ID extends Ser
 
     @Override
     public E findById(ID id) {
-        return entityManager.createQuery("e from "+getEntityClass()+"e where e.id =: id",
+        return entityManager.createQuery("from "+getEntityClass().getSimpleName()+" where id =: id",
                 getEntityClass()).setParameter("id",id).getSingleResult();
     }
 
     @Override
     public List<E> findAll() {
-        return entityManager.createQuery("from "+getEntityClass(),getEntityClass()).getResultList();
+        return entityManager.createQuery("from "+getEntityClass().getSimpleName(),getEntityClass()).getResultList();
     }
 
     @Override

@@ -13,23 +13,24 @@ public class AirlineMenu {
 
     public void airlinePage(Airline airline){
         scaffolding();
-        System.out.println("0 -> "+airline.getLabel()+" Tickets");
-        System.out.println("1 -> Add Ticket");
-        System.out.println("2 -> Remove Ticket");
-        System.out.println("3 -> Logout");
+        System.out.println("1 -> "+airline.getLabel()+" Tickets");
+        System.out.println("2 -> Add Ticket");
+        System.out.println("3 -> Remove Ticket");
+        System.out.println("4 -> Logout");
         Integer select = number.nextInt();
 
+        System.out.println("select:"+select);
         switch (select){
-            case 0:
+            case 1:
                 labelTickets(airline);
                 break;
-            case 1:
+            case 2:
                 addTicket(airline);
                 break;
-            case 2:
+            case 3:
                 removeTicket(airline);
                 break;
-            case 3:
+            case 4:
                 scaffolding();
                 System.out.println("You were logged out!");
                 Context.first.startMenu();
@@ -45,6 +46,7 @@ public class AirlineMenu {
             System.out.println(ticket.getId()+". Label: "+ticket.getAirline().getLabel());
             System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice());
         }
+        airlinePage(airline);
     }
 
     public void addTicket(Airline airline){
@@ -69,7 +71,6 @@ public class AirlineMenu {
     }
 
     public void removeTicket(Airline airline){
-        labelTickets(airline);
         scaffolding();
         System.out.println("Select Ticket to delete:");
         Long id = number.nextLong();

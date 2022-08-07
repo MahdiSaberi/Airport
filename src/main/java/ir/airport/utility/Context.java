@@ -25,7 +25,8 @@ public class Context {
     public static TicketService ticket = new TicketServiceImpl(getTicketRepository());
 
     //menu
-    public static BaseMenu baseMenu = new BaseMenu();
+    //public static BaseMenu baseMenu = new BaseMenu();
+    public static First first = new First();
     public static Login login = new Login();
     public static Register register = new Register();
     public static TicketMenu ticketMenu = new TicketMenu();
@@ -44,9 +45,7 @@ public class Context {
         return new AirlineRepositoryImpl();
     }
 
-    public static BaseMenu getBaseMenu() {
-        return baseMenu;
-    }
+    public static First getFirst() {return first;}
 
     public static Login getLogin() {
         return new Login();

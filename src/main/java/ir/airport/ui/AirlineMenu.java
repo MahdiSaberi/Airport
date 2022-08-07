@@ -32,7 +32,7 @@ public class AirlineMenu {
             case 3:
                 scaffolding();
                 System.out.println("You were logged out!");
-                Context.baseMenu.startMenu();
+                Context.first.startMenu();
         }
     }
 

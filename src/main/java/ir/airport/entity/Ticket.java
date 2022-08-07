@@ -20,7 +20,7 @@ public class Ticket extends BaseEntity<Long> {
     @Column(name = "reserved")
     private Integer reservedNumber = 0;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     private List<User> users;
 
     public Ticket() {

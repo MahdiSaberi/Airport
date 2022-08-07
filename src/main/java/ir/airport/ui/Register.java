@@ -1,5 +1,6 @@
 package ir.airport.ui;
 
+import ir.airport.entity.Airline;
 import ir.airport.entity.User;
 import ir.airport.utility.Context;
 
@@ -14,6 +15,15 @@ public class Register {
         System.out.println("1 -> User");
         System.out.println("2 -> Airline");
         Integer select = number.nextInt();
+
+        switch (select){
+            case 1:
+                registerUser();
+                break;
+            case 2:
+                registerAirline();
+                break;
+        }
 
     }
 
@@ -37,7 +47,7 @@ public class Register {
             scaffolding();
             System.out.println("This username already reserved.");
         }finally {
-            Context.baseMenu.startMenu();
+            Context.first.startMenu();
         }
     }
 
@@ -46,5 +56,17 @@ public class Register {
         String label = string.nextLine();
         System.out.println("Password:");
         String password = string.nextLine();
+
+        try{
+            Airline airline = new Airline(label,password);
+            Context.airline.save(airline);
+            scaffolding();
+            System.out.println("Label Registered!");
+        }catch (Exception e){
+            scaffolding();
+            System.out.println("Something went wrong.");
+        }finally {
+            Context.first.startMenu();
+        }
     }
 }

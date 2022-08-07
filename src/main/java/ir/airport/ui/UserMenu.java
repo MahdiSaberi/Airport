@@ -28,7 +28,7 @@ public class UserMenu {
                 break;
             case 4:
                 System.out.println("You were logged out!");
-                Context.baseMenu.startMenu();
+                Context.first.startMenu();
 
         }
     }
@@ -65,6 +65,10 @@ public class UserMenu {
         Ticket ticket = Context.ticket.findById(id);
 
         if(ticket.getUsers().contains(user)){
+            ticket.setReservedNumber(ticket.getReservedNumber()-1);
+            ticket.getUsers().remove(user);
+            Context.ticket.update(ticket);
+
             System.out.println("Refunded!");
             userPage(user);
         }

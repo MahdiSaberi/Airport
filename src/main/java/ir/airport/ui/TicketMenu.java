@@ -33,6 +33,16 @@ public class TicketMenu {
     }
 
     public void reserve(User user){
+        scaffolding();
+        System.out.println("Select Ticket by ID:");
+        Long id = number.nextLong();
+        Ticket ticket = Context.ticket.findById(id);
+
+        ticket.setReservedNumber(ticket.getReservedNumber()+1);
+        ticket.getUsers().add(user);
+        Context.ticket.update(ticket);
+        System.out.println("Reserved!");
+        Context.userMenu.userPage(user);
 
     }
 

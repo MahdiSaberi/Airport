@@ -12,14 +12,14 @@ public class BaseMenu {
     public static Scanner string = new Scanner(System.in);
     public static Scanner number = new Scanner(System.in);
 
-    public static void skeffolding(){
+    public static void scaffolding(){
         System.out.println("=====================");
     }
 
     public void startMenu(){
-        skeffolding();
+        scaffolding();
         System.out.println("Welcome!");
-        skeffolding();
+        scaffolding();
         System.out.println("1 -> Login");
         System.out.println("2 -> Register");
         System.out.println("3 -> Exit");

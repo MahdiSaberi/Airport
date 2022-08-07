@@ -8,9 +8,9 @@ import static ir.airport.ui.base.BaseMenu.*;
 public class Register {
 
     public void registerMenu(){
-        skeffolding();
+        scaffolding();
         System.out.println("Register as:");
-        skeffolding();
+        scaffolding();
         System.out.println("1 -> User");
         System.out.println("2 -> Airline");
         Integer select = number.nextInt();
@@ -30,11 +30,11 @@ public class Register {
         try{
             User user = new User(firstName,lastName,username,password);
             Context.user.save(user);
-            skeffolding();
+            scaffolding();
             System.out.println("You Registered!");
         }catch (Exception e){
             e.printStackTrace();
-            skeffolding();
+            scaffolding();
             System.out.println("This username already reserved.");
         }finally {
             Context.baseMenu.startMenu();

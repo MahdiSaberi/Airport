@@ -9,9 +9,9 @@ import static ir.airport.ui.base.BaseMenu.*;
 public class Login {
 
     public void loginMenu(){
-        skeffolding();
+        scaffolding();
         System.out.println("Login as:");
-        skeffolding();
+        scaffolding();
         System.out.println("1 -> User");
         System.out.println("2 -> Airline");
         Integer select = number.nextInt();
@@ -28,7 +28,7 @@ public class Login {
     }
 
     public void userLogin(){
-        skeffolding();
+        scaffolding();
         System.out.println("Username:");
         String username = string.nextLine();
         System.out.println("Password:");
@@ -36,20 +36,20 @@ public class Login {
         User user = Context.user.findByUsername(username);
 
         if(user != null && user.getPassword().equals(password)) {
-            skeffolding();
+            scaffolding();
             System.out.println("Login was successfully!");
             Context.userMenu.userPage(user);
         }
 
         else {
-            skeffolding();
+            scaffolding();
             System.out.println("Wrong informations");
             userLogin();
         }
     }
 
     public void airlineLogin(){
-        skeffolding();
+        scaffolding();
         System.out.println("Label:");
         String label = string.nextLine();
         System.out.println("Password:");
@@ -58,13 +58,13 @@ public class Login {
         Airline airline = Context.airline.findByLabel(label);
 
         if(airline != null && airline.getPassword().equals(password)) {
-            skeffolding();
+            scaffolding();
             System.out.println("Login was successfully!");
             Context.airlineMenu.airlinePage(airline);
         }
 
         else {
-            skeffolding();
+            scaffolding();
             System.out.println("Wrong informations");
             airlineLogin();
         }

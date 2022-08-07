@@ -3,10 +3,6 @@ package ir.airport.ui;
 import ir.airport.entity.Ticket;
 import ir.airport.entity.User;
 import ir.airport.utility.Context;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static ir.airport.ui.base.BaseMenu.number;
 import static ir.airport.ui.base.BaseMenu.scaffolding;
 
@@ -45,6 +41,20 @@ public class UserMenu {
         System.out.println("3 -> Sort");
         System.out.println("4 -> Back");
         Integer select = number.nextInt();
+
+        switch (select){
+            case 1:
+                Context.ticketMenu.reserve(user);
+                break;
+            case 2:
+                Context.ticketMenu.searching();
+                break;
+            case 3:
+                Context.ticketMenu.sorting();
+                break;
+            case 4:
+                userPage(user);
+        }
     }
 
     public void ticketRefund(User user){

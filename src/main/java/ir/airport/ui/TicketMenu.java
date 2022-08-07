@@ -31,4 +31,16 @@ public class TicketMenu {
             System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice());
         }
     }
+
+    public void reserve(User user){
+
+    }
+
+    public void searching(){
+
+    }
+
+    public void sorting(){
+
+    }
 }

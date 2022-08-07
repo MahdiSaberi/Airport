@@ -34,7 +34,6 @@ public class Login {
         System.out.println("Password:");
         String password = string.nextLine();
         User user = Context.user.findByUsername(username);
-
         if(user != null && user.getPassword().equals(password)) {
             scaffolding();
             System.out.println("Login was successfully!");

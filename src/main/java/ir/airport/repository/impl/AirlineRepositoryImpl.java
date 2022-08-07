@@ -16,7 +16,7 @@ public class AirlineRepositoryImpl extends BaseRepositoryImpl<Airline,Long> impl
 
     @Override
     public Airline findByLabel(String label) {
-        return entityManager.createQuery("from "+ Airline.class+" where label =: label",Airline.class).
+        return entityManager.createQuery("from Airline"+" where label =: label",Airline.class).
                 setParameter("label",label).getSingleResult();
     }
 }

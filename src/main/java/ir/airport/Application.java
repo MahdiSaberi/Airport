@@ -8,13 +8,13 @@ import ir.airport.ui.Register;
 import ir.airport.utility.Context;
 import ir.airport.utility.HibernateUtil;
 
+import static ir.airport.utility.Context.entityManager;
+
 public class Application {
     public static void main(String[] args) {
         HibernateUtil.getEntityManager();
-        //Context.baseMenu.startMenu();
         //init();
-        //Register.registerUser();
-        System.out.println("Done!");
+        Context.first.startMenu();
     }
 
     public static void init(){

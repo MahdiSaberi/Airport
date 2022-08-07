@@ -1,6 +1,6 @@
 package ir.airport.ui;
 
-import static ir.airport.ui.BaseMenu.*;
+import static ir.airport.ui.base.BaseMenu.*;
 
 public class Login {
 

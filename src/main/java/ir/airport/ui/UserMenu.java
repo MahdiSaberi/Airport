@@ -40,6 +40,7 @@ public class UserMenu {
         System.out.println("2 -> Search");
         System.out.println("3 -> Sort");
         System.out.println("4 -> Back");
+
         Integer select = number.nextInt();
 
         switch (select){

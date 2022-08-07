@@ -11,4 +11,9 @@ public class AirlineServiceImpl extends BaseServiceImpl<Airline,Long, AirlineRep
     public AirlineServiceImpl(AirlineRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Airline findByLabel(String label){
+        return repository.findByLabel(label);
+    }
 }

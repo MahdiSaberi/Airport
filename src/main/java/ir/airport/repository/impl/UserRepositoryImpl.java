@@ -14,6 +14,12 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<User,Long> implements
         return User.class;
     }
 
+    @Override
+    public User findByUsername(String username) {
+        return entityManager.createQuery("from "+User.class+" where username =: username",User.class).
+                setParameter("username",username).getSingleResult();
+    }
+
     public void initUsers(){
         User user1 = new User("Mahdi","Saberi","mahdi","123");
         User user2 = new User("Abbas","Jadidi","abas","1234");

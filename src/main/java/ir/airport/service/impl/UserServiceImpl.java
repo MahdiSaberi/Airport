@@ -9,4 +9,16 @@ public class UserServiceImpl extends BaseServiceImpl<User,Long, UserRepository> 
     public UserServiceImpl(UserRepository repository) {
         super(repository);
     }
+
+    @Override
+    public User findByUsername(String username) {
+        User user = null;
+        try{
+            user = repository.findByUsername(username);
+            return user;
+        }catch (Exception e){
+            System.out.println("Wrong inputs!");
+        }
+        return user;
+    }
 }

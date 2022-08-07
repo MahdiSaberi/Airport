@@ -1,5 +1,6 @@
 package ir.airport.utility;
 
+import ir.airport.entity.Airline;
 import ir.airport.repository.AirlineRepository;
 import ir.airport.repository.TicketRepository;
 import ir.airport.repository.UserRepository;
@@ -12,10 +13,7 @@ import ir.airport.service.UserService;
 import ir.airport.service.impl.AirlineServiceImpl;
 import ir.airport.service.impl.TicketServiceImpl;
 import ir.airport.service.impl.UserServiceImpl;
-import ir.airport.ui.Login;
-import ir.airport.ui.Register;
-import ir.airport.ui.TicketMenu;
-import ir.airport.ui.UserMenu;
+import ir.airport.ui.*;
 import ir.airport.ui.base.BaseMenu;
 import jakarta.persistence.EntityManager;
 
@@ -32,6 +30,7 @@ public class Context {
     public static Register register = new Register();
     public static TicketMenu ticketMenu = new TicketMenu();
     public static UserMenu userMenu = new UserMenu();
+    public static AirlineMenu airlineMenu = new AirlineMenu();
 
     private static UserRepository getUserRepository(){
         return new UserRepositoryImpl();

@@ -23,6 +23,8 @@ public class Ticket extends BaseEntity<Long> {
     @ManyToMany(cascade = CascadeType.MERGE)
     private List<User> users;
 
+
+
     public Ticket() {
     }
 

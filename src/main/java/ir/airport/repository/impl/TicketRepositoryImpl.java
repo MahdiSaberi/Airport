@@ -55,14 +55,7 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
 
     @Override
     public List<Ticket> orderByLabel() {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Ticket> criteriaQuery = criteriaBuilder.createQuery(Ticket.class);
-        Root<Ticket> root = criteriaQuery.from(Ticket.class);
-        criteriaQuery.orderBy(criteriaBuilder.asc(root.get("label")));
-        CriteriaQuery<Ticket> select = criteriaQuery.select(root);
-        TypedQuery<Ticket> query = entityManager.createQuery(select);
-        List<Ticket> tickets = query.getResultList();
-        return tickets;
+        return entityManager.createQuery("from Ticket order by airline.label",Ticket.class).getResultList();
     }
 
     public void initAirlinesWithTickets(){

@@ -17,19 +17,19 @@ import jakarta.persistence.EntityManager;
 
 public class Context {
     public static EntityManager entityManager = HibernateUtil.getEntityManager();
-
+    //entity
     public static UserService user = new UserServiceImpl(getUserRepository());
     public static AirlineService airline = new AirlineServiceImpl(getAirlineRepository());
     public static TicketService ticket = new TicketServiceImpl(getTicketRepository());
 
     //menu
-    //public static BaseMenu baseMenu = new BaseMenu();
     public static First first = new First();
     public static Login login = new Login();
     public static Register register = new Register();
     public static TicketMenu ticketMenu = new TicketMenu();
     public static UserMenu userMenu = new UserMenu();
     public static AirlineMenu airlineMenu = new AirlineMenu();
+
 
     private static UserRepository getUserRepository(){
         return new UserRepositoryImpl();

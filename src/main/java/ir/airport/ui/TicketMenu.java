@@ -3,6 +3,7 @@ import ir.airport.entity.Ticket;
 import ir.airport.entity.User;
 import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
+import jakarta.persistence.criteria.Order;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,16 +13,16 @@ import static ir.airport.base.ui.BaseMenu.scaffolding;
 
 public class TicketMenu {
 
-    public void ticketList(String order){
+    public void ticketList(String order, Sort type){
 
-        List<Ticket> tickets = null;
+        List<Ticket> tickets;
 
-        if(order.equals("Label")){
+        if(order.equals("label")){
             tickets = Context.ticket.orderByLabel();
         }
 
         else
-            tickets = Context.ticket.orderBy(order, Sort.ASC);
+            tickets = Context.ticket.orderBy(order, type);
 
         tickets.forEach(ticket -> {
             scaffolding();
@@ -72,19 +73,36 @@ public class TicketMenu {
 
         switch (select){
             case 1:
-                ticketList("price");
+                sortType("price");
                 break;
             case 2:
-                ticketList("origin");
+                sortType("origin");
                 break;
             case 3:
-                ticketList("destination");
+                sortType("destination");
                 break;
             case 4:
-                ticketList("Label");
+                sortType("label");
                 break;
             case 5:
                 Context.userMenu.seeAndBuyTickets(user);
+        }
+    }
+
+    public void sortType(String order){
+        scaffolding();
+        System.out.println("    1 -> Ascending");
+        System.out.println("    2 -> Descending");
+
+        Integer select = number.nextInt();
+
+        switch (select){
+            case 1:
+                ticketList(order,Sort.ASC);
+                break;
+            case 2:
+                ticketList(order,Sort.DESC);
+                break;
         }
     }
 }

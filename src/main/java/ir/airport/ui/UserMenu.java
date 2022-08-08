@@ -2,6 +2,7 @@ package ir.airport.ui;
 
 import ir.airport.entity.Ticket;
 import ir.airport.entity.User;
+import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
 import static ir.airport.base.ui.BaseMenu.number;
 import static ir.airport.base.ui.BaseMenu.scaffolding;
@@ -18,7 +19,7 @@ public class UserMenu {
 
         switch (select){
             case 1:
-                Context.ticketMenu.ticketList("id");
+                Context.ticketMenu.ticketList("id", Sort.ASC);
                 seeAndBuyTickets(user);
                 break;
             case 2:

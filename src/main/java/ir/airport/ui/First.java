@@ -1,11 +1,9 @@
 package ir.airport.ui;
-
+import ir.airport.base.ui.BaseMenu;
 import ir.airport.utility.Context;
 
-import static ir.airport.base.ui.BaseMenu.number;
-import static ir.airport.base.ui.BaseMenu.scaffolding;
 
-public class First {
+public class First extends BaseMenu {
     public void startMenu(){
         scaffolding();
         System.out.println("Welcome!");

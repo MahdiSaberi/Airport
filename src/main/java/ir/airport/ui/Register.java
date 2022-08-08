@@ -1,12 +1,11 @@
 package ir.airport.ui;
-
+import ir.airport.base.ui.BaseMenu;
 import ir.airport.entity.Airline;
 import ir.airport.entity.User;
 import ir.airport.utility.Context;
 
-import static ir.airport.base.ui.BaseMenu.*;
 
-public class Register {
+public class Register extends BaseMenu {
 
     public void registerMenu(){
         scaffolding();

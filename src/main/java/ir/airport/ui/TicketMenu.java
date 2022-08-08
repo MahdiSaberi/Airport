@@ -1,28 +1,18 @@
 package ir.airport.ui;
+import ir.airport.base.ui.BaseMenu;
 import ir.airport.entity.Ticket;
 import ir.airport.entity.User;
 import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
-import jakarta.persistence.criteria.Order;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static ir.airport.base.ui.BaseMenu.number;
-import static ir.airport.base.ui.BaseMenu.scaffolding;
 
-public class TicketMenu {
+public class TicketMenu extends BaseMenu {
 
     public void ticketList(String order, Sort type){
 
-        List<Ticket> tickets;
-
-        if(order.equals("label")){
-            tickets = Context.ticket.orderByLabel(type);
-        }
-
-        else
-            tickets = Context.ticket.orderBy(order, type);
+        List<Ticket> tickets = Context.ticket.orderBy(order, type);
 
         tickets.forEach(ticket -> {
             scaffolding();

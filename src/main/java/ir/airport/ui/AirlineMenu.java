@@ -1,12 +1,12 @@
 package ir.airport.ui;
+import ir.airport.base.ui.BaseMenu;
 import ir.airport.entity.Airline;
 import ir.airport.entity.Ticket;
 import ir.airport.utility.Context;
 import java.util.List;
 import java.util.stream.Collectors;
-import static ir.airport.base.ui.BaseMenu.*;
 
-public class AirlineMenu {
+public class AirlineMenu extends BaseMenu {
 
     public void airlinePage(Airline airline){
         scaffolding();

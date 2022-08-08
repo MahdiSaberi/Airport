@@ -1,13 +1,12 @@
 package ir.airport.ui;
 
+import ir.airport.base.ui.BaseMenu;
 import ir.airport.entity.Ticket;
 import ir.airport.entity.User;
 import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
-import static ir.airport.base.ui.BaseMenu.number;
-import static ir.airport.base.ui.BaseMenu.scaffolding;
 
-public class UserMenu {
+public class UserMenu extends BaseMenu {
 
     public void userPage(User user){
         scaffolding();

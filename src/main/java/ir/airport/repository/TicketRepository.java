@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface TicketRepository extends BaseRepository<Ticket,Long> {
     List<Ticket> orderBy(String order, Sort sort);
-    List<Ticket> orderByLabel();
+    List<Ticket> orderByLabel(Sort type);
 }

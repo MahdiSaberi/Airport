@@ -18,7 +18,7 @@ public class TicketMenu {
         List<Ticket> tickets;
 
         if(order.equals("label")){
-            tickets = Context.ticket.orderByLabel();
+            tickets = Context.ticket.orderByLabel(type);
         }
 
         else

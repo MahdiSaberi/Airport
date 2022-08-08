@@ -37,8 +37,13 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
     }
 
     @Override
-    public List<Ticket> orderByLabel() {
-        return entityManager.createQuery("from Ticket order by airline.label",Ticket.class).getResultList();
+    public List<Ticket> orderByLabel(Sort type) {
+
+        if(type == Sort.ASC)
+            return entityManager.createQuery("from Ticket order by airline.label asc ",Ticket.class).getResultList();
+
+        else
+            return entityManager.createQuery("from Ticket order by airline.label desc ",Ticket.class).getResultList();
     }
 
     public void initAirlinesWithTickets(){

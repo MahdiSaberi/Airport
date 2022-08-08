@@ -18,7 +18,7 @@ public class UserMenu {
 
         switch (select){
             case 1:
-                Context.ticketMenu.ticketList("ID");
+                Context.ticketMenu.ticketList("id");
                 seeAndBuyTickets(user);
                 break;
             case 2:

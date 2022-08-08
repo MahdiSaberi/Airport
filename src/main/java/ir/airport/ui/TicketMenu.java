@@ -1,6 +1,7 @@
 package ir.airport.ui;
 import ir.airport.entity.Ticket;
 import ir.airport.entity.User;
+import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
 
 import java.util.List;
@@ -15,24 +16,12 @@ public class TicketMenu {
 
         List<Ticket> tickets = null;
 
-        if(order.equals("ID"))
-            tickets = Context.ticket.findAll();
-
-        else if(order.equals("Price")){
-            tickets = Context.ticket.orderByPrice();
-        }
-
-        else if(order.equals("Origin")){
-            tickets = Context.ticket.orderByOrigin();
-        }
-
-        else if (order.equals("Destination")){
-            tickets = Context.ticket.orderByDestination();
-        }
-
-        else if(order.equals("Label")){
+        if(order.equals("Label")){
             tickets = Context.ticket.orderByLabel();
         }
+
+        else
+            tickets = Context.ticket.orderBy(order, Sort.ASC);
 
         tickets.forEach(ticket -> {
             scaffolding();
@@ -83,13 +72,13 @@ public class TicketMenu {
 
         switch (select){
             case 1:
-                ticketList("Price");
+                ticketList("price");
                 break;
             case 2:
-                ticketList("Origin");
+                ticketList("origin");
                 break;
             case 3:
-                ticketList("Destination");
+                ticketList("destination");
                 break;
             case 4:
                 ticketList("Label");

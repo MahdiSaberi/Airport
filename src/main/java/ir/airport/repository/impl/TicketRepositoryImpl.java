@@ -4,6 +4,7 @@ import ir.airport.base.repository.impl.BaseRepositoryImpl;
 import ir.airport.entity.Airline;
 import ir.airport.entity.Ticket;
 import ir.airport.repository.TicketRepository;
+import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -18,35 +19,17 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
     public Class<Ticket> getEntityClass() {return Ticket.class;}
 
     @Override
-    public List<Ticket> orderByPrice() {
+    public List<Ticket> orderBy(String order, Sort sort){
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Ticket> criteriaQuery = criteriaBuilder.createQuery(Ticket.class);
         Root<Ticket> root = criteriaQuery.from(Ticket.class);
-        criteriaQuery.orderBy(criteriaBuilder.asc(root.get("price")));
-        CriteriaQuery<Ticket> select = criteriaQuery.select(root);
-        TypedQuery<Ticket> query = entityManager.createQuery(select);
-        List<Ticket> tickets = query.getResultList();
-        return tickets;
-    }
 
-    @Override
-    public List<Ticket> orderByOrigin() {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Ticket> criteriaQuery = criteriaBuilder.createQuery(Ticket.class);
-        Root<Ticket> root = criteriaQuery.from(Ticket.class);
-        criteriaQuery.orderBy(criteriaBuilder.asc(root.get("origin")));
-        CriteriaQuery<Ticket> select = criteriaQuery.select(root);
-        TypedQuery<Ticket> query = entityManager.createQuery(select);
-        List<Ticket> tickets = query.getResultList();
-        return tickets;
-    }
+        if(sort == Sort.ASC)
+            criteriaQuery.orderBy(criteriaBuilder.asc(root.get(order)));
 
-    @Override
-    public List<Ticket> orderByDestination() {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Ticket> criteriaQuery = criteriaBuilder.createQuery(Ticket.class);
-        Root<Ticket> root = criteriaQuery.from(Ticket.class);
-        criteriaQuery.orderBy(criteriaBuilder.asc(root.get("destination")));
+        else if(sort == Sort.DESC)
+            criteriaQuery.orderBy(criteriaBuilder.desc(root.get(order)));
+
         CriteriaQuery<Ticket> select = criteriaQuery.select(root);
         TypedQuery<Ticket> query = entityManager.createQuery(select);
         List<Ticket> tickets = query.getResultList();

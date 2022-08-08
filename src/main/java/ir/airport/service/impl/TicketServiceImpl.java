@@ -4,6 +4,7 @@ import ir.airport.base.repository.impl.BaseRepositoryImpl;
 import ir.airport.base.service.impl.BaseServiceImpl;
 import ir.airport.entity.Ticket;
 import ir.airport.repository.TicketRepository;
+import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.service.TicketService;
 import ir.airport.utility.Context;
 
@@ -17,25 +18,9 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketReposi
     }
 
     @Override
-    public List<Ticket> orderByPrice() {
+    public List<Ticket> orderBy(String order, Sort sort) {
         repository.beginTransaction();
-        List<Ticket> tickets = repository.orderByPrice();
-        repository.commitTransaction();
-        return tickets;
-    }
-
-    @Override
-    public List<Ticket> orderByOrigin() {
-        repository.beginTransaction();
-        List<Ticket> tickets = repository.orderByOrigin();
-        repository.commitTransaction();
-        return tickets;
-    }
-
-    @Override
-    public List<Ticket> orderByDestination() {
-        repository.beginTransaction();
-        List<Ticket> tickets = repository.orderByDestination();
+        List<Ticket> tickets = repository.orderBy(order,sort);
         repository.commitTransaction();
         return tickets;
     }

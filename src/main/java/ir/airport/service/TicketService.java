@@ -2,12 +2,11 @@ package ir.airport.service;
 
 import ir.airport.base.service.BaseService;
 import ir.airport.entity.Ticket;
+import ir.airport.repository.impl.enumeration.Sort;
 
 import java.util.List;
 
 public interface TicketService extends BaseService<Ticket,Long> {
-    List<Ticket> orderByPrice();
-    List<Ticket> orderByOrigin();
-    List<Ticket> orderByDestination();
+    List<Ticket> orderBy(String order, Sort sort);
     List<Ticket> orderByLabel();
 }

@@ -1,11 +1,9 @@
 package ir.airport.repository.impl;
 
 import ir.airport.base.repository.impl.BaseRepositoryImpl;
-import ir.airport.entity.Airline;
 import ir.airport.entity.Ticket;
 import ir.airport.repository.TicketRepository;
 import ir.airport.repository.impl.enumeration.Sort;
-import ir.airport.utility.Context;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;

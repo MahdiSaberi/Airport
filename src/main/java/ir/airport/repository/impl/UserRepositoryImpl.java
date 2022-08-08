@@ -3,11 +3,7 @@ package ir.airport.repository.impl;
 import ir.airport.base.repository.impl.BaseRepositoryImpl;
 import ir.airport.entity.User;
 import ir.airport.repository.UserRepository;
-import ir.airport.utility.Context;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
 
-import java.util.List;
 
 public class UserRepositoryImpl extends BaseRepositoryImpl<User,Long> implements UserRepository {
 

@@ -13,10 +13,8 @@ import ir.airport.service.impl.AirlineServiceImpl;
 import ir.airport.service.impl.TicketServiceImpl;
 import ir.airport.service.impl.UserServiceImpl;
 import ir.airport.ui.*;
-import jakarta.persistence.EntityManager;
 
 public class Context {
-    public static EntityManager entityManager = HibernateUtil.getEntityManager();
     //entity
     public static UserService user = new UserServiceImpl(getUserRepository());
     public static AirlineService airline = new AirlineServiceImpl(getAirlineRepository());

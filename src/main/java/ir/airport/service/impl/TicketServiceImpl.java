@@ -18,18 +18,10 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketReposi
     }
 
     @Override
-    public List<Ticket> orderBy(String order, Sort sort) {
+    public List<Ticket> orderBy(String order, Sort type) {
         repository.beginTransaction();
-        List<Ticket> tickets = repository.orderBy(order,sort);
+        List<Ticket> tickets = repository.orderBy(order,type);
         repository.commitTransaction();
-        return tickets;
-    }
-
-    @Override
-    public List<Ticket> orderByLabel(Sort type) {
-        repository.beginTransaction();
-        List<Ticket> tickets = repository.orderByLabel(type);
-        repository.commitTransaction();
-        return tickets;
+            return tickets;
     }
 }

@@ -19,31 +19,31 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
     public Class<Ticket> getEntityClass() {return Ticket.class;}
 
     @Override
-    public List<Ticket> orderBy(String order, Sort sort){
+    public List<Ticket> orderBy(String order, Sort type){
+
+        if(order.equals("label")){
+            if(type == Sort.ASC)
+                return entityManager.createQuery("from Ticket order by airline.label asc ",Ticket.class).getResultList();
+
+            else
+                return entityManager.createQuery("from Ticket order by airline.label desc ",Ticket.class).getResultList();
+        }
+
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Ticket> criteriaQuery = criteriaBuilder.createQuery(Ticket.class);
         Root<Ticket> root = criteriaQuery.from(Ticket.class);
 
-        if(sort == Sort.ASC)
+        if(type == Sort.ASC)
             criteriaQuery.orderBy(criteriaBuilder.asc(root.get(order)));
 
-        else if(sort == Sort.DESC)
+        else if(type == Sort.DESC)
             criteriaQuery.orderBy(criteriaBuilder.desc(root.get(order)));
 
         CriteriaQuery<Ticket> select = criteriaQuery.select(root);
         TypedQuery<Ticket> query = entityManager.createQuery(select);
         List<Ticket> tickets = query.getResultList();
+
         return tickets;
-    }
-
-    @Override
-    public List<Ticket> orderByLabel(Sort type) {
-
-        if(type == Sort.ASC)
-            return entityManager.createQuery("from Ticket order by airline.label asc ",Ticket.class).getResultList();
-
-        else
-            return entityManager.createQuery("from Ticket order by airline.label desc ",Ticket.class).getResultList();
     }
 
     public void initAirlinesWithTickets(){

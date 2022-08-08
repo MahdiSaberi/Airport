@@ -27,7 +27,7 @@ public class TicketMenu {
         tickets.forEach(ticket -> {
             scaffolding();
             System.out.println(ticket.getId()+". Label: "+ticket.getAirline().getLabel());
-            System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice());
+            System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice()+"\t"+"Reserved: "+ticket.getReservedNumber());
         });
     }
 
@@ -39,7 +39,7 @@ public class TicketMenu {
             scaffolding();
             System.out.println(ticket.getId()+". Label: "+ticket.getAirline().getLabel());
             System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice()
-            +"\t"+"Number reserved: "+ticket.getReservedNumber());
+            +"\t"+"Reserved: "+ticket.getReservedNumber());
         }
     }
 

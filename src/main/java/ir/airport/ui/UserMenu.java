@@ -42,10 +42,14 @@ public class UserMenu extends BaseMenu {
         System.out.println("4 -> Back");
 
         Integer select = number.nextInt();
+        Integer choose;
 
         switch (select){
             case 1:
-                Context.ticketMenu.reserve(user);
+                System.out.println("1 -> By Origin & Destination");
+                System.out.println("2 -> By ID");
+                choose = number.nextInt();
+                Context.ticketMenu.reserve(user,choose);
                 break;
             case 2:
                 Context.ticketMenu.searching();

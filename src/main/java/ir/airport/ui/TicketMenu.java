@@ -5,10 +5,23 @@ import ir.airport.entity.User;
 import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
 
 public class TicketMenu extends BaseMenu {
+
+    public void ticketList(String origin,String destination){
+        List<Ticket> tickets = Context.ticket.findByOriginAndDestination(origin,destination);
+
+        tickets.forEach(ticket -> {
+            scaffolding();
+            System.out.println(ticket.getId()+". Label: "+ticket.getAirline().getLabel());
+            System.out.println("Origin: "+ticket.getOrigin()+"\t"+"Destination: "+ticket.getDestination()+"\t"+"Price: "+ticket.getPrice()+"\t"+"Reserved: "+ticket.getReservedNumber());
+        });
+        scaffolding();
+
+    }
 
     public void ticketList(String order, Sort type){
 
@@ -33,17 +46,48 @@ public class TicketMenu extends BaseMenu {
         }
     }
 
-    public void reserve(User user){
-        scaffolding();
-        System.out.println("Select Ticket by ID:");
-        Long id = number.nextLong();
-        Ticket ticket = Context.ticket.findById(id);
+    public void reserve(User user,Integer choose){
 
-        ticket.setReservedNumber(ticket.getReservedNumber()+1);
-        ticket.getUsers().add(user);
-        Context.ticket.update(ticket);
-        System.out.println("Reserved!");
-        Context.userMenu.userPage(user);
+        Reservation byOriginAndDestination = () ->
+        {
+            System.out.println("Origin:");
+            String origin = string.nextLine();
+            System.out.println("Destination:");
+            String destination = string.nextLine();
+            ticketList(origin,destination);
+
+            System.out.println("Select by ID:");
+
+            Long id = number.nextLong();
+            Ticket ticket = Context.ticket.findById(id);
+            ticket.setReservedNumber(ticket.getReservedNumber()+1);
+            ticket.getUsers().add(user);
+            Context.ticket.update(ticket);
+            System.out.println("Reserved!");
+            Context.userMenu.userPage(user);
+        };
+
+        Reservation byId = () ->
+        {
+            System.out.println("Select Ticket by ID:");
+            Long id = number.nextLong();
+            Ticket ticket = Context.ticket.findById(id);
+
+            ticket.setReservedNumber(ticket.getReservedNumber()+1);
+            ticket.getUsers().add(user);
+            Context.ticket.update(ticket);
+            System.out.println("Reserved!");
+            Context.userMenu.userPage(user);
+        };
+
+        switch (choose){
+            case 1:
+                byOriginAndDestination.run();
+                break;
+            case 2:
+                byId.run();
+                break;
+        }
 
     }
 

@@ -44,4 +44,9 @@ public class TicketRepositoryImpl extends BaseRepositoryImpl<Ticket,Long> implem
         return tickets;
     }
 
+    @Override
+    public List<Ticket> findByOriginAndDestination(String origin, String destination) {
+        return entityManager.createQuery("from Ticket where origin =: origin and destination =: destination ",Ticket.class)
+                .setParameter("origin",origin).setParameter("destination",destination).getResultList();
+    }
 }

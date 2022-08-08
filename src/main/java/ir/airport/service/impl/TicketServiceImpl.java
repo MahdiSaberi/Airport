@@ -24,4 +24,15 @@ public class TicketServiceImpl extends BaseServiceImpl<Ticket,Long, TicketReposi
         repository.commitTransaction();
             return tickets;
     }
+
+
+
+    @Override
+    public List<Ticket> findByOriginAndDestination(String origin, String destination) {
+        repository.beginTransaction();
+        List<Ticket> tickets = repository.findByOriginAndDestination(origin,destination);
+        System.out.println("TICKETS: "+tickets.toString());
+        repository.commitTransaction();
+        return tickets;
+    }
 }

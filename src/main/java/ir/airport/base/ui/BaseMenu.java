@@ -1,7 +1,7 @@
 package ir.airport.base.ui;
 import java.util.Scanner;
 
-public class BaseMenu {
+public abstract class BaseMenu {
 
     protected static Scanner string = new Scanner(System.in);
     protected static Scanner number = new Scanner(System.in);

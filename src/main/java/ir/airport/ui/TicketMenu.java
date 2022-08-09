@@ -47,8 +47,7 @@ public class TicketMenu extends BaseMenu {
 
     public void reserve(User user,Integer choose){
 
-        Runnable byOriginAndDestination = () ->
-        {
+        Runnable byOriginAndDestination = () -> {
             System.out.println("Origin:");
             String origin = string.nextLine();
             System.out.println("Destination:");
@@ -66,8 +65,7 @@ public class TicketMenu extends BaseMenu {
             Context.userMenu.userPage(user);
         };
 
-        Runnable byId = () ->
-        {
+        Runnable byId = () -> {
             System.out.println("Select Ticket by ID:");
             Long id = number.nextLong();
             Ticket ticket = Context.ticket.findById(id);

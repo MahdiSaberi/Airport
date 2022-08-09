@@ -5,7 +5,6 @@ import ir.airport.entity.User;
 import ir.airport.repository.impl.enumeration.Sort;
 import ir.airport.utility.Context;
 import java.util.List;
-import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
 
@@ -48,7 +47,7 @@ public class TicketMenu extends BaseMenu {
 
     public void reserve(User user,Integer choose){
 
-        Reservation byOriginAndDestination = () ->
+        Runnable byOriginAndDestination = () ->
         {
             System.out.println("Origin:");
             String origin = string.nextLine();
@@ -67,7 +66,7 @@ public class TicketMenu extends BaseMenu {
             Context.userMenu.userPage(user);
         };
 
-        Reservation byId = () ->
+        Runnable byId = () ->
         {
             System.out.println("Select Ticket by ID:");
             Long id = number.nextLong();
